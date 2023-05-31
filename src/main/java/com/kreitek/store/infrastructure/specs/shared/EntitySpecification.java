@@ -1,14 +1,9 @@
 package com.kreitek.store.infrastructure.specs.shared;
 
-import com.kreitek.store.domain.entity.Item;
-
 import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import jakarta.persistence.criteria.Root;
-
-
-import org.springframework.data.jpa.domain.Specification;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +39,7 @@ public abstract class EntitySpecification<T> {
 
                     String[] valueSplited = criteria.getKey().split("\\.");
                     predicates.add(builder.equal(
-                        root.join(valueSplited[0]).get(valueSplited[1]) , criteria.getValue()));
+                            root.join(valueSplited[0]).get(valueSplited[1]), criteria.getValue()));
 
                 } else {
                     predicates.add(builder.equal(
@@ -52,9 +47,9 @@ public abstract class EntitySpecification<T> {
                 }
             } else if (criteria.getOperation().equals(SearchOperation.MATCH)) {
 
-                    predicates.add(builder.like(
-                            builder.lower(root.get(criteria.getKey())),
-                            "%" + criteria.getValue().toString().toLowerCase() + "%"));
+                predicates.add(builder.like(
+                        builder.lower(root.get(criteria.getKey())),
+                        "%" + criteria.getValue().toString().toLowerCase() + "%"));
 
 
             } else if (criteria.getOperation().equals(SearchOperation.MATCH_END)) {

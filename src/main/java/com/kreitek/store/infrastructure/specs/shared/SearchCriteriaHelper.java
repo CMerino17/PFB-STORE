@@ -3,7 +3,7 @@ package com.kreitek.store.infrastructure.specs.shared;
 import java.util.ArrayList;
 import java.util.List;
 
-public  class SearchCriteriaHelper {
+public class SearchCriteriaHelper {
 
     public static final int EXPECTED_SEGMENTS_NUMBER = 3;
     public static final int KEY_SEGMENT_POSITION = 0;
@@ -16,7 +16,9 @@ public  class SearchCriteriaHelper {
         List<SearchCriteria> criterias = new ArrayList<>();
         int i;
 
-        if (filter == null) { return criterias; }
+        if (filter == null) {
+            return criterias;
+        }
 
         String[] filterSegments = filter.split(SEGMENTS_DIVISOR);
 

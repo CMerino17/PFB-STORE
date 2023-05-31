@@ -9,9 +9,13 @@ import java.util.Optional;
 
 public interface ItemService {
     List<ItemDTO> getAllItems();
+
     List<ItemDTO> getAllItemsByCategory(Long categoryId);
+
     Optional<ItemDTO> getItemById(Long itemId);
+
     ItemDTO saveItem(ItemDTO item);
+
     void deleteItem(Long itemId);
 
     Page<ItemDTO> getItemsByCriteriaStringPaged(Pageable pageable, String filter);

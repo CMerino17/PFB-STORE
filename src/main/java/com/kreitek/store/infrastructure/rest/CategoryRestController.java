@@ -20,7 +20,7 @@ public class CategoryRestController {
 
     @CrossOrigin
     @GetMapping(value = "/categories", produces = "application/json")
-    ResponseEntity<List<CategoryDTO>> getAllCategories(@RequestParam(name = "partialName", required = false) String partialName){
+    ResponseEntity<List<CategoryDTO>> getAllCategories(@RequestParam(name = "partialName", required = false) String partialName) {
         List<CategoryDTO> categories;
 
         if (partialName == null) {
@@ -34,7 +34,7 @@ public class CategoryRestController {
 
     @CrossOrigin
     @PostMapping(value = "/categories", produces = "application/json", consumes = "application/json")
-    ResponseEntity<CategoryDTO> insertCategory(@RequestBody CategoryDTO categoryDTO){
+    ResponseEntity<CategoryDTO> insertCategory(@RequestBody CategoryDTO categoryDTO) {
         categoryDTO = this.categoryService.saveCategory(categoryDTO);
         return new ResponseEntity<>(categoryDTO, HttpStatus.CREATED);
     }
