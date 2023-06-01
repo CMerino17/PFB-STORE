@@ -16,4 +16,7 @@ public interface UserPersistence {
     void deleteUser(Long userId);
 
     List<User> getUserByNick(String nick);
+
+    Optional<User> getUserByNickAndPassword(String nick, String password);
+
 }

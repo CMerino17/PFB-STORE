@@ -68,4 +68,11 @@ public class UserRestController {
 
         return new ResponseEntity<>(users, HttpStatus.OK);
     }
+
+    @CrossOrigin
+    @PatchMapping(value = "/users", produces = "application/json", consumes = "application/json")
+    ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
+        UserDTO userUpdated = this.userService.saveUser(userDTO);
+        return new ResponseEntity<>(userUpdated, HttpStatus.OK);
+    }
 }

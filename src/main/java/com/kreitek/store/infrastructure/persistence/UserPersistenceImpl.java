@@ -40,6 +40,11 @@ public class UserPersistenceImpl implements UserPersistence {
 
     @Override
     public List<User> getUserByNick(String nick) {
-        return this.userRepository.findByNickContainsIgnoreCase(nick);
+        return this.userRepository.findByNickEqualsIgnoreCase(nick);
+    }
+
+    @Override
+    public Optional<User> getUserByNickAndPassword(String nick, String password) {
+        return this.userRepository.findOneByNickEqualsIgnoreCaseAndPasswordEquals(nick, password);
     }
 }
