@@ -17,7 +17,8 @@ import { HttpRequestIntercept } from './config/interceptors/http-request-interce
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ItemReactiveFormComponent } from './entities/item/item-reactive-form/item-reactive-form.component';
 import { UserComponent } from './entities/user/user.component';
-import { LoginComponent } from './entities/login/login.component';
+import { LoginComponent } from './entities/user/login/login.component';
+import { RegisterComponent } from './entities/user/register/register.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LoginComponent } from './entities/login/login.component';
     CategoryFormComponent,
     ItemReactiveFormComponent,
     UserComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

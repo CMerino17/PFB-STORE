@@ -6,7 +6,8 @@ import { ItemListComponent } from './entities/item/item-list/item-list.component
 import { ItemFormComponent } from './entities/item/item-form/item-form.component'
 import { ItemReactiveFormComponent } from './entities/item/item-reactive-form/item-reactive-form.component'
 import { UserComponent } from './entities/user/user.component';
-import { LoginComponent } from './entities/login/login.component';
+import { LoginComponent } from './entities/user/login/login.component';
+import { RegisterComponent } from './entities/user/register/register.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'items/:itemId', component: ItemFormComponent },
   { path: 'items/reactive/:itemId', component: ItemReactiveFormComponent },
   { path: 'user', component: UserComponent },
-  { path: 'login', component: LoginComponent }
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

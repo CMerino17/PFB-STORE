@@ -40,7 +40,7 @@ export class UserComponent implements OnInit{
       }
     })*/
   }
-
+/*
   public searchUser(nick: string, password: string) {
 
     this.userService.getUser(nick).subscribe({
@@ -69,6 +69,6 @@ export class UserComponent implements OnInit{
     });
         
 
-  }
+  }*/
 
 }

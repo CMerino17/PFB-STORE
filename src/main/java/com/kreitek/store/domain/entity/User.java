@@ -20,7 +20,7 @@ public class User {
     private Long phoneNumber;
     @Column(length = 200)
     private String email;
-    @Column(length = 200)
+    @Column(length = 50)
     private String password;
 
     public User() {

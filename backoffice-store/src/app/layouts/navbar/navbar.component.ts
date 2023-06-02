@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginComponent } from '../../entities/login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -24,5 +23,10 @@ export class NavbarComponent implements OnInit{
 
   getNick(): string | null{
     return localStorage.getItem("logged");
+  }
+
+  logout(): void {
+    localStorage.removeItem('logged');
+
   }
 }
