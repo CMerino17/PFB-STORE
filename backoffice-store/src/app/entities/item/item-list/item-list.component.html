@@ -34,14 +34,14 @@
     </thead>
     <tbody>
         <tr *ngFor="let item of items">
-            <td>{{ item.id }}</td>
-            <td>
+            <td [routerLink]="['/cardItem', item.id]">{{ item.id }}</td>
+            <td [routerLink]="['/cardItem', item.id]">
                 <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
             </td>
-            <td>
+            <td [routerLink]="['/cardItem', item.id]">
                 {{ item.name }}
             </td>
-            <td>
+            <td [routerLink]="['/cardItem', item.id]">
                 {{ item.price }}
             </td>
             <td>

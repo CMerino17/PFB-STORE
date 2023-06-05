@@ -19,6 +19,7 @@ import { ItemReactiveFormComponent } from './entities/item/item-reactive-form/it
 import { UserComponent } from './entities/user/user.component';
 import { LoginComponent } from './entities/user/login/login.component';
 import { RegisterComponent } from './entities/user/register/register.component';
+import { CardItemComponent } from './entities/item/card-item/card-item.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { RegisterComponent } from './entities/user/register/register.component';
     ItemReactiveFormComponent,
     UserComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    CardItemComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,5 @@
+import { Item } from "../../item/model/item.model"
+
 export class User {
     id: number | undefined
     nick: string
@@ -6,6 +8,7 @@ export class User {
     phoneNumber: number
     email: string
     password: string
+    favourites: Item[]
 
     constructor(
         id: number | undefined,
@@ -14,7 +17,8 @@ export class User {
         surname: string,
         phoneNumber: number,
         email: string,
-        password: string
+        password: string,
+        favourites: Item[]
     ) {
         this.id = id
         this.nick = nick
@@ -23,5 +27,6 @@ export class User {
         this.phoneNumber = phoneNumber
         this.email = email
         this.password = password
+        this.favourites = favourites
     }
 }

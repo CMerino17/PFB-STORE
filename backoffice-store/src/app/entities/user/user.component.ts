@@ -11,10 +11,11 @@ import { UserService } from './service/user.service';
 export class UserComponent implements OnInit{
 
   mode: "LOGIN" | "SING UP" = "LOGIN"
-  userId?: number;
+  
   user?: User;
   nick?: string;
   password?: string;
+  isFavourite: boolean = false;
 
   login: boolean = false;
 
@@ -25,50 +26,47 @@ export class UserComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.nick = localStorage.getItem('logged')!;
+    this.getUser(this.nick);
     
   }
 
-  public getAllUsers(): void {
-    /*this.userService.getAllUsers().subscribe({
-      next: (data: any) => {
-        console.log(data);
-        this.user = new User(data.id,data.nick,data.name,data.surname,data.phoneNumber,data.email,data.password);
-        this.userId = data.id;
-        this.nick = data.nick;
-        this.password = data.password;
-        
-      }
-    })*/
-  }
-/*
-  public searchUser(nick: string, password: string) {
-
+  private getUser(nick: string): void {
     this.userService.getUser(nick).subscribe({
       next: (data: any) => {
-        
-        let json = data[0];
-        //console.log(json);
         this.user = data[0];
-       // console.log(this.user);
-        
-        if (this.user!.nick == nick) {
-          this.login = true;
-          console.log("EXISTE EL USER");
-        }
-        else {
-          console.log("NO EXISTE EL USER");
-          console.log(data.nick);
-        }
-
-        if (this.user!.password == password) {
-          console.log("CONTRASEÑA CORRECTA");
-        } else {
-          console.log("CONTRASEÑA INCORRECTA");
-        }
       }
-    });
-        
+    })
+  }
 
+  public delete(itemId: number, userId: number): void {
+    this.deleteFavourite(itemId, userId);
+  }
+
+  private deleteFavourite(itemId: number, userId: number): void {
+    this.userService.deleteFavourite(userId,itemId).subscribe({
+      next: (data: any) => {
+        this.isFavourite = false;
+        this.getUser(this.nick!);
+      }
+    })
+  }
+/*
+  private isFavouriteItem(itemId: number, userNick: string): void {
+    this.userService.getUser(userNick).subscribe({
+      next: (data: any) => {
+        for(let fav of data[0].favourites){
+          if (fav.id == itemId) {
+            this.isFavourite = true;
+            console.log("marcado como fav" + this.isFavourite);
+            break;
+          }
+        }
+        
+      }
+    })
   }*/
+  
+
 
 }

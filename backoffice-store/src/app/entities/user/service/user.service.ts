@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
- /* public getUser(partialName?: string): Observable<User>{
+  public getUser(partialName?: string): Observable<User>{
     let urlEndpoint: string = "http://localhost:8080/store/users";
     if (partialName) {
       urlEndpoint = urlEndpoint + "?partialName=" + partialName;
@@ -18,11 +18,6 @@ export class UserService {
     return this.http.get<User>(urlEndpoint);
   }
 
-  public getAllUsers(): Observable<User[]>{
-    let urlEndpoint: string = "http://localhost:8080/store/users";
-    return this.http.get<User[]>(urlEndpoint);
-  }
-*/
   public loginUser(nick: string, password: string): Observable<boolean>{
     let urlEndpoint: string = "http://localhost:8080/store/login";
     let body = {"nick":nick, "password":password}
@@ -33,4 +28,16 @@ export class UserService {
     let urlEndpoint: string = "http://localhost:8080/store/users";
     return this.http.post<User>(urlEndpoint, user);
   }
+
+  public deleteFavourite(userId: number, itemId: number): Observable<any> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/favourites/"+itemId;
+    return this.http.delete<any>(urlEndpoint);
+  }
+
+  public insertFavourite(userId: number, itemId: number): Observable<User> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/favourites";
+    let body = {"id":itemId}
+    return this.http.post<User>(urlEndpoint, body);
+  }
+
 }

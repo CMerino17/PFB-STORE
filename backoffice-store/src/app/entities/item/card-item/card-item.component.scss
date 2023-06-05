@@ -1,0 +1,33 @@
+#general{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+    
+    #itemName{
+        margin-bottom: 20px;
+    }
+    h4{
+        margin-bottom: 20px;
+        font-size: 18px;
+        color: grey;
+        &:hover{
+            cursor: pointer;
+        }
+    }
+    #itemPrice{
+        color: orangered;
+    }
+    img{
+        width: 375px;
+        border: 2px solid black;
+    }
+    
+    .btn{
+        margin-top: 20px;
+    }
+}
+
+
+
