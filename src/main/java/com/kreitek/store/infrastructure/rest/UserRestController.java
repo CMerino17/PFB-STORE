@@ -89,4 +89,13 @@ public class UserRestController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @CrossOrigin
+    @DeleteMapping(value = "/users/{userId}/favourites/{itemId}")
+    ResponseEntity<?> deleteFavourite(@PathVariable Long userId, @PathVariable Long itemId) {
+        this.favouriteService.deleteFavouriteItemFromUser(itemId,userId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 }
