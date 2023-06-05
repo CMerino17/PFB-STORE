@@ -1,0 +1,24 @@
+<h1>Identifícate</h1>
+
+
+<form id="loginForm" #loginForm="ngForm" name="loginForm" role="form" novalidate autocomplete="off">
+
+    <!-- Usuario -->
+    <div class="form-group">
+        <label for="name">Usuario</label>
+        <input type="text" [(ngModel)]="nick" name="name" class="form-control" id="name" #name="ngModel" required minlength="3" maxlength="100">
+    </div>
+    <!-- Contraseña -->
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" #description="ngModel" maxlength="2000">
+    </div>
+
+    <div id="loginUser" class="buttonsForm">
+        <button type="button" class="btn btn-dark" (click)="getLoginUser(nick!,password!);" [disabled]="loginForm.invalid">Identificarse</button>
+    </div>
+
+</form>
+<div id="registerUser" class="buttonsForm">
+    <button type="button" class="btn btn-info" (click)="navigateToRegister();">Regístrate</button>
+</div>

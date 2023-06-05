@@ -1,0 +1,9 @@
+.navbar{
+    height: 80px;
+    // Le pongo padding arriba y abajo ya que al entrar en la página de editar articulo
+    // me muestra arriba un mensaje que estoy usando una versión LTS de PrimeNG sin licencia
+    // y me oculta el navbar para seguir navegando
+    padding-top: 80px;
+    padding-bottom: 25px;
+}
+

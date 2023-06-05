@@ -1,0 +1,71 @@
+<h1>Formulario de Registro</h1>
+
+<form id="registerForm" *ngIf="user" #userForm="ngForm" name="userForm" role="form" novalidate autocomplete="off">
+
+    <!-- Nick -->
+    <div class="form-group">
+        <label for="nick">Nick</label>
+        <input type="text" [(ngModel)]="user.nick" name="nick" class="form-control" id="nick" #nick="ngModel" required minlength="3" maxlength="50">
+    </div>
+    <!--Validación Nick-->
+    <div *ngIf="(nick.dirty && nick.errors)">
+        <small class="form-text text-danger" *ngIf="nick.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="nick.errors['minlength']">
+            Este campo tiene que tener una longitud mínima de 3 caracteres
+        </small>
+    </div>
+    <!-- Name -->
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" #name="ngModel" required maxlength="50">
+    </div>
+    <!-- Surname -->
+    <div class="form-group">
+        <label for="surname">Apellidos</label>
+        <input type="text" [(ngModel)]="user.surname" name="surname" class="form-control" id="surname" #surname="ngModel" required maxlength="100">
+    </div>
+    <!-- Phone Number -->
+    <div class="form-group">
+        <label for="phoneNumber">Teléfono</label>
+        <input type="number" [(ngModel)]="user.phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" #phoneNumber="ngModel" required min="600000000" max="699999999">
+    </div>
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" [email]="true" [(ngModel)]="user.email" name="email" class="form-control" id="email" #email="ngModel" required maxlength="200">
+    </div>
+    <!-- Password -->
+    <div class="form-group">
+        <label for="password">Contraseña</label>
+        <input type="password" [(ngModel)]="user.password" name="password" class="form-control" id="password" #password="ngModel" required minlength="3" maxlength="50">
+    </div>
+    <!--Validación Password-->
+    <div *ngIf="(password.dirty && password.errors)">
+        <small class="form-text text-danger" *ngIf="password.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="password.errors['minlength']">
+            Este campo tiene que tener una longitud mínima de 3 caracteres
+        </small>
+    </div>
+   <!-- Password Repeat-->
+   <div class="form-group">
+    <label for="passwordRepeat">Repite la contraseña</label>
+    <input type="password" [(ngModel)]="passwordRepeat" name="passwordRepeat" class="form-control" required minlength="3" maxlength="50">
+    </div>
+    <!--Validación Password Repeat-->
+    <div *ngIf="!samePassword(user.password,passwordRepeat!)">
+        <small class="form-text text-danger">
+            La contraseña debe ser la misma
+        </small>
+    </div>
+        
+    
+    <div class="buttonsForm">
+        <button id="registerBtn" type="button" class="btn btn-dark" (click)="saveUser();" [disabled]="userForm.invalid">Regristrarse</button>
+    </div>
+
+</form>
+
