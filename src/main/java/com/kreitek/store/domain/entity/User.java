@@ -3,6 +3,8 @@ package com.kreitek.store.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -22,6 +24,10 @@ public class User {
     private String email;
     @Column(length = 50)
     private String password;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "user_favs")
+    private List<Item> favourites;
 
     public User() {
 
@@ -81,5 +87,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<Item> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(List<Item> favourites) {
+        this.favourites = favourites;
     }
 }

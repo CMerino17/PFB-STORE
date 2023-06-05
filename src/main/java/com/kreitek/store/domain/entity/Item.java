@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
+import java.util.List;
+
 @Entity
 @Table(name = "items")
 public class Item {
@@ -23,6 +25,8 @@ public class Item {
     @ManyToOne()
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+    @ManyToMany(mappedBy = "favourites")
+    private List<User> users;
 
     public Item() {
     }
@@ -74,4 +78,13 @@ public class Item {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
 }

@@ -1,6 +1,9 @@
 package com.kreitek.store.application.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.io.Serializable;
+import java.util.List;
 
 public class UserDTO implements Serializable {
 
@@ -16,7 +19,10 @@ public class UserDTO implements Serializable {
 
     private String email;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String password;
+
+    private List<ItemDTO> favourites;
 
     public UserDTO() {
 
@@ -76,5 +82,13 @@ public class UserDTO implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<ItemDTO> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(List<ItemDTO> favourites) {
+        this.favourites = favourites;
     }
 }

@@ -5,15 +5,19 @@ import com.kreitek.store.domain.entity.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.processing.Generated;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-02T11:59:38+0200",
+    date = "2023-06-03T22:09:40+0200",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.1.jar, environment: Java 17.0.7 (Amazon.com Inc.)"
 )
 @Component
 public class UserMapperImpl implements UserMapper {
+
+    @Autowired
+    private ItemMapper itemMapper;
 
     @Override
     public List<User> toEntity(List<UserDTO> dtoList) {
@@ -58,6 +62,7 @@ public class UserMapperImpl implements UserMapper {
         user.setPhoneNumber( userDTO.getPhoneNumber() );
         user.setEmail( userDTO.getEmail() );
         user.setPassword( userDTO.getPassword() );
+        user.setFavourites( itemMapper.toEntity( userDTO.getFavourites() ) );
 
         return user;
     }
@@ -76,7 +81,7 @@ public class UserMapperImpl implements UserMapper {
         userDTO.setSurname( user.getSurname() );
         userDTO.setPhoneNumber( user.getPhoneNumber() );
         userDTO.setEmail( user.getEmail() );
-        userDTO.setPassword( user.getPassword() );
+        userDTO.setFavourites( itemMapper.toDto( user.getFavourites() ) );
 
         return userDTO;
     }

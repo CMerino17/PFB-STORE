@@ -1,5 +1,6 @@
 package com.kreitek.store.infrastructure.persistence;
 
+import com.kreitek.store.domain.entity.Item;
 import com.kreitek.store.domain.entity.User;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,4 +48,6 @@ public class UserPersistenceImpl implements UserPersistence {
     public Optional<User> getUserByNickAndPassword(String nick, String password) {
         return this.userRepository.findOneByNickEqualsIgnoreCaseAndPasswordEquals(nick, password);
     }
+
+
 }

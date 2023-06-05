@@ -3,12 +3,9 @@ package com.kreitek.store.application.service.impl;
 import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.mapper.UserMapper;
 import com.kreitek.store.application.service.UserService;
-import com.kreitek.store.domain.entity.Category;
 import com.kreitek.store.domain.entity.User;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -55,4 +52,5 @@ public class UserServiceImpl implements UserService {
         return mapper.toDto(users);
 
     }
+
 }

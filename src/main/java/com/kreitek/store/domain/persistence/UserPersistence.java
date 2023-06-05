@@ -1,5 +1,6 @@
 package com.kreitek.store.domain.persistence;
 
+import com.kreitek.store.domain.entity.Item;
 import com.kreitek.store.domain.entity.User;
 
 import java.util.List;
@@ -18,5 +19,7 @@ public interface UserPersistence {
     List<User> getUserByNick(String nick);
 
     Optional<User> getUserByNickAndPassword(String nick, String password);
+
+
 
 }

@@ -1,10 +1,11 @@
 package com.kreitek.store.infrastructure.rest;
 
-import com.kreitek.store.application.dto.CategoryDTO;
 import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.UserDTO;
+import com.kreitek.store.application.service.FavouriteService;
 import com.kreitek.store.application.service.UserService;
-import com.kreitek.store.domain.entity.User;
+
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,12 @@ import java.util.Optional;
 public class UserRestController {
 
     private final UserService userService;
+    private final FavouriteService favouriteService;
 
     @Autowired
-    public UserRestController(UserService userService) {
+    public UserRestController(UserService userService, FavouriteService favouriteService) {
         this.userService = userService;
+        this.favouriteService = favouriteService;
     }
 
     /*@CrossOrigin
@@ -74,5 +77,16 @@ public class UserRestController {
     ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO) {
         UserDTO userUpdated = this.userService.saveUser(userDTO);
         return new ResponseEntity<>(userUpdated, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "/users/{userId}/favourites", produces = "application/json", consumes = "application/json")
+    ResponseEntity<UserDTO> insertFavourite(@PathVariable Long userId, @RequestBody ItemDTO itemDTO) {
+        Optional<UserDTO> userDTO = this.favouriteService.addItemAsFavouriteToUser(itemDTO.getId(), userId);
+        if (userDTO.isPresent()){
+            return new ResponseEntity<>(userDTO.get(), HttpStatus.CREATED);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 }

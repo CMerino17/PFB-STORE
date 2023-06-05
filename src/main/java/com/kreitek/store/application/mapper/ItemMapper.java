@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 public interface ItemMapper extends EntityMapper<ItemDTO, Item> {
     @Override
     @Mapping(source = "categoryId", target = "category")
+    @Mapping(target = "users", ignore = true)
     Item toEntity(ItemDTO dto);
 
     @Override
