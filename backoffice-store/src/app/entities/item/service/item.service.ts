@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 import { Item } from '../model/item.model'
+import { User } from '../../user/model/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -39,5 +40,10 @@ export class ItemService {
     return this.http.patch<Item>(urlEndpoint, item);
   }
   
+  public insertFavourite(userId: number, itemId: number): Observable<User> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/favourites";
+    let body = {"id":itemId}
+    return this.http.post<User>(urlEndpoint, body);
+  }
 
 }

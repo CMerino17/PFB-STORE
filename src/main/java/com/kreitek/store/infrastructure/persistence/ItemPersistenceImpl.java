@@ -51,4 +51,5 @@ public class ItemPersistenceImpl implements ItemPersistence {
         ItemSpecification specification = new ItemSpecification(SearchCriteriaHelper.fromFilterString(filters));
         return this.itemRepository.findAll(specification, pageable);
     }
+
 }

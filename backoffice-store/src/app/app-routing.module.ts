@@ -8,6 +8,7 @@ import { ItemReactiveFormComponent } from './entities/item/item-reactive-form/it
 import { UserComponent } from './entities/user/user.component';
 import { LoginComponent } from './entities/user/login/login.component';
 import { RegisterComponent } from './entities/user/register/register.component';
+import { CardItemComponent } from './entities/item/card-item/card-item.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'items/reactive/:itemId', component: ItemReactiveFormComponent },
   { path: 'user', component: UserComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'register', component: RegisterComponent },
+  { path: 'cardItem/:itemId', component: CardItemComponent }
 ];
 
 @NgModule({
