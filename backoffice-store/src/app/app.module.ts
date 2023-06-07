@@ -20,6 +20,7 @@ import { UserComponent } from './entities/user/user.component';
 import { LoginComponent } from './entities/user/login/login.component';
 import { RegisterComponent } from './entities/user/register/register.component';
 import { CardItemComponent } from './entities/item/card-item/card-item.component';
+import { CartComponent } from './entities/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CardItemComponent } from './entities/item/card-item/card-item.component
     UserComponent,
     LoginComponent,
     RegisterComponent,
-    CardItemComponent
+    CardItemComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

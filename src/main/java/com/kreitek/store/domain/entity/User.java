@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -27,7 +28,11 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_favs")
-    private List<Item> favourites;
+    private Set<Item> favourites;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "users_items", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
+    private Set<Item> items;
 
     public User() {
 
@@ -89,11 +94,27 @@ public class User {
         this.password = password;
     }
 
-    public List<Item> getFavourites() {
+    public Set<Item> getFavourites() {
         return favourites;
     }
 
-    public void setFavourites(List<Item> favourites) {
+    public void setFavourites(Set<Item> favourites) {
         this.favourites = favourites;
+    }
+
+    public Set<Item> getItems() {
+        return items;
+    }
+
+    public void setItems(Set<Item> items) {
+        this.items = items;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass() || id == null) return false;
+        User user = (User) o;
+        return id.equals(user.id);
     }
 }

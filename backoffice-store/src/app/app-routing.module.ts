@@ -9,6 +9,7 @@ import { UserComponent } from './entities/user/user.component';
 import { LoginComponent } from './entities/user/login/login.component';
 import { RegisterComponent } from './entities/user/register/register.component';
 import { CardItemComponent } from './entities/item/card-item/card-item.component';
+import { CartComponent } from './entities/cart/cart.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'cardItem/:itemId', component: CardItemComponent }
+  { path: 'cardItem/:itemId', component: CardItemComponent },
+  { path: 'cart', component: CartComponent }
 ];
 
 @NgModule({

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 public class FavouriteServiceImpl implements FavouriteService {
@@ -49,7 +50,7 @@ public class FavouriteServiceImpl implements FavouriteService {
         }
     }
 
-    private boolean itemExistsInFavourites(Item item, List<Item> favourites){
+    private boolean itemExistsInFavourites(Item item, Set<Item> favourites){
         return favourites.stream().anyMatch(favItem -> favItem.getId().equals(item.getId()));
     }
 }

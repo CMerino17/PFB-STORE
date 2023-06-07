@@ -1,0 +1,74 @@
+.imgItem{
+    width: 80px;
+    height: 80px;
+}
+table{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: default;
+}
+th{
+    background-color: black;
+    color: white;
+}
+tr:nth-child(even){
+    background-color: rgb(218, 218, 218);
+}
+.botoneraPaginacion{
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+form{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    height: 150px;
+    margin-top: 50px;
+    background-color: silver;
+    #titFiltros{
+        background-color: black;
+        color: white;
+        font-size: 20px;
+        width: fit-content;
+        padding: 10px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+    }
+}
+input{
+    width: 75px;
+    text-align: center;
+}
+#btnSearch{
+    margin-left: 100px;
+}
+label{
+    margin-right: 10px;
+}
+#price{
+    display: flex;
+    flex-direction: row;
+    input{
+        height: 30px;
+    }
+}
+.cartTotalPrice{
+    margin-top: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: orangered;
+    height: 50px;
+    align-items: center;
+    #precioTotal{
+        color: yellow;
+        font-size: 24px;
+    }
+}

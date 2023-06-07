@@ -9,6 +9,7 @@ export class User {
     email: string
     password: string
     favourites: Item[]
+    items: Item[]
 
     constructor(
         id: number | undefined,
@@ -18,7 +19,8 @@ export class User {
         phoneNumber: number,
         email: string,
         password: string,
-        favourites: Item[]
+        favourites: Item[],
+        items: Item[]
     ) {
         this.id = id
         this.nick = nick
@@ -28,5 +30,6 @@ export class User {
         this.email = email
         this.password = password
         this.favourites = favourites
+        this.items = items
     }
 }

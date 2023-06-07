@@ -1,16 +1,20 @@
 package com.kreitek.store.application.mapper;
 
+import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.UserDTO;
+import com.kreitek.store.domain.entity.Item;
 import com.kreitek.store.domain.entity.User;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.annotation.processing.Generated;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-03T22:09:40+0200",
+    date = "2023-06-07T17:55:25+0200",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.1.jar, environment: Java 17.0.7 (Amazon.com Inc.)"
 )
 @Component
@@ -62,7 +66,8 @@ public class UserMapperImpl implements UserMapper {
         user.setPhoneNumber( userDTO.getPhoneNumber() );
         user.setEmail( userDTO.getEmail() );
         user.setPassword( userDTO.getPassword() );
-        user.setFavourites( itemMapper.toEntity( userDTO.getFavourites() ) );
+        user.setFavourites( itemDTOListToItemSet( userDTO.getFavourites() ) );
+        user.setItems( itemDTOListToItemSet( userDTO.getItems() ) );
 
         return user;
     }
@@ -81,8 +86,36 @@ public class UserMapperImpl implements UserMapper {
         userDTO.setSurname( user.getSurname() );
         userDTO.setPhoneNumber( user.getPhoneNumber() );
         userDTO.setEmail( user.getEmail() );
-        userDTO.setFavourites( itemMapper.toDto( user.getFavourites() ) );
+        userDTO.setPassword( user.getPassword() );
+        userDTO.setFavourites( itemSetToItemDTOList( user.getFavourites() ) );
+        userDTO.setItems( itemSetToItemDTOList( user.getItems() ) );
 
         return userDTO;
+    }
+
+    protected Set<Item> itemDTOListToItemSet(List<ItemDTO> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        Set<Item> set = new HashSet<Item>( Math.max( (int) ( list.size() / .75f ) + 1, 16 ) );
+        for ( ItemDTO itemDTO : list ) {
+            set.add( itemMapper.toEntity( itemDTO ) );
+        }
+
+        return set;
+    }
+
+    protected List<ItemDTO> itemSetToItemDTOList(Set<Item> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        List<ItemDTO> list = new ArrayList<ItemDTO>( set.size() );
+        for ( Item item : set ) {
+            list.add( itemMapper.toDto( item ) );
+        }
+
+        return list;
     }
 }

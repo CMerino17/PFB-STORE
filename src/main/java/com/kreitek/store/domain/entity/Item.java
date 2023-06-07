@@ -4,7 +4,10 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "items")
@@ -26,7 +29,7 @@ public class Item {
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
     @ManyToMany(mappedBy = "favourites")
-    private List<User> users;
+    private Set<User> users;
 
     public Item() {
     }
@@ -79,12 +82,21 @@ public class Item {
         this.category = category;
     }
 
-    public List<User> getUsers() {
+    public Set<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<User> users) {
+    public void setUsers(Set<User> users) {
         this.users = users;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass() || id == null) return false;
+        Item item = (Item) o;
+        return id.equals(item.id);
+    }
+
 
 }
