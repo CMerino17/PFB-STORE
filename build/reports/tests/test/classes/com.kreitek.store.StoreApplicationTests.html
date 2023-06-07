@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.144s</div>
+<div class="counter">0.159s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.144s</td>
+<td class="success">0.159s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,14 +87,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>11:11:22.728 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [StoreApplicationTests]: using SpringBootContextLoader
-11:11:22.732 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.kreitek.store.StoreApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-11:11:22.733 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kreitek.store.StoreApplicationTests]: StoreApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-11:11:22.750 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [StoreApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-11:11:22.811 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\Usuario\Desktop\store\build\classes\java\main\com\kreitek\store\StoreApplication.class]
-11:11:22.812 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kreitek.store.StoreApplication for test class com.kreitek.store.StoreApplicationTests
-11:11:22.903 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [StoreApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-11:11:22.904 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [StoreApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
+<pre>17:55:30.327 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Neither @ContextConfiguration nor @ContextHierarchy found for test class [StoreApplicationTests]: using SpringBootContextLoader
+17:55:30.332 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader -- Could not detect default resource locations for test class [com.kreitek.store.StoreApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+17:55:30.333 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.kreitek.store.StoreApplicationTests]: StoreApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:55:30.355 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using ContextCustomizers for test class [StoreApplicationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+17:55:30.414 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider -- Identified candidate component class: file [C:\Users\Usuario\Desktop\store\build\classes\java\main\com\kreitek\store\StoreApplication.class]
+17:55:30.416 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.kreitek.store.StoreApplication for test class com.kreitek.store.StoreApplicationTests
+17:55:30.528 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Using TestExecutionListeners for test class [StoreApplicationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, EventPublishingTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+17:55:30.529 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener -- Before test class: class [StoreApplicationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,20 +104,20 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.6)
 
-2023-06-07T11:11:23.171+02:00  INFO 17364 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : Starting StoreApplicationTests using Java 17.0.7 with PID 17364 (started by Carlos Merino in C:\Users\Usuario\Desktop\store)
-2023-06-07T11:11:23.173+02:00  INFO 17364 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-06-07T11:11:23.704+02:00  INFO 17364 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-06-07T11:11:23.770+02:00  INFO 17364 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 3 JPA repository interfaces.
-2023-06-07T11:11:24.113+02:00  INFO 17364 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-06-07T11:11:24.159+02:00  INFO 17364 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-06-07T11:11:24.399+02:00  INFO 17364 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-06-07T11:11:24.592+02:00  INFO 17364 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./store user=
-2023-06-07T11:11:24.594+02:00  INFO 17364 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-06-07T11:11:24.635+02:00  INFO 17364 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
-2023-06-07T11:11:25.332+02:00  INFO 17364 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-06-07T11:11:25.340+02:00  INFO 17364 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-06-07T11:11:26.081+02:00  INFO 17364 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/console'. Database available at 'jdbc:h2:./store'
-2023-06-07T11:11:26.159+02:00  INFO 17364 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : Started StoreApplicationTests in 3.183 seconds (process running for 5.719)
+2023-06-07T17:55:30.794+02:00  INFO 13176 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : Starting StoreApplicationTests using Java 17.0.7 with PID 13176 (started by Carlos Merino in C:\Users\Usuario\Desktop\store)
+2023-06-07T17:55:30.795+02:00  INFO 13176 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-06-07T17:55:31.340+02:00  INFO 13176 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-07T17:55:31.408+02:00  INFO 13176 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 3 JPA repository interfaces.
+2023-06-07T17:55:31.738+02:00  INFO 13176 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-07T17:55:31.795+02:00  INFO 13176 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-07T17:55:32.048+02:00  INFO 13176 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-07T17:55:32.229+02:00  INFO 13176 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:./store user=
+2023-06-07T17:55:32.231+02:00  INFO 13176 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-07T17:55:32.254+02:00  INFO 13176 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2023-06-07T17:55:32.955+02:00  INFO 13176 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-07T17:55:32.962+02:00  INFO 13176 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-07T17:55:33.700+02:00  INFO 13176 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/console'. Database available at 'jdbc:h2:./store'
+2023-06-07T17:55:33.738+02:00  INFO 13176 --- [    Test worker] c.kreitek.store.StoreApplicationTests    : Started StoreApplicationTests in 3.168 seconds (process running for 4.148)
 </pre>
 </span>
 </div>
@@ -129,7 +129,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at 7 jun 2023 11:11:26</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at 7 jun 2023 17:55:35</p>
 </div>
 </div>
 </body>

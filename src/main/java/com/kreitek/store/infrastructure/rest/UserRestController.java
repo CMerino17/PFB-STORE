@@ -96,7 +96,7 @@ public class UserRestController {
         this.favouriteService.deleteFavouriteItemFromUser(itemId,userId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
-
+    @CrossOrigin
     @PostMapping(value = "/users/{userId}/items", produces = "application/json", consumes = "application/json")
     public ResponseEntity<List<ItemDTO>> addItemToUserCart(@PathVariable Long userId, @RequestBody ItemDTO itemDTO){
         List<ItemDTO> itemsDto = this.userService.addItemToCart(userId, itemDTO);

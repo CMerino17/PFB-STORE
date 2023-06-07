@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
 import { ItemService } from '../service/item.service'
 import { Item } from '../model/item.model'
+import { UserService } from '../../user/service/user.service';
+import { User } from '../../user/model/user.model';
 
 @Component({
   selector: 'app-item-list',
@@ -26,9 +28,12 @@ export class ItemListComponent implements OnInit {
   priceFilter?: string;
 
   itemIdToDelete?: number;
+  userId?: number;
+  userIsLogged: boolean = false;
 
   constructor(private route: ActivatedRoute,
-              private itemService: ItemService) {}
+              private itemService: ItemService,
+              private userService: UserService) {}
 
   ngOnInit(): void {
       if (this.route.snapshot.paramMap.get("categoryId")){
@@ -40,6 +45,37 @@ export class ItemListComponent implements OnInit {
         
       }
       this.getAllItems();
+      this.isLogged();
+  }
+
+  private isLogged() {
+    if (localStorage.getItem("logged")) {
+      this.userIsLogged = true;
+      this.getUserByNick();
+      return true;
+    }
+    return false;
+  }
+
+  private getUserByNick() {
+    this.userService.getUser(localStorage.getItem("logged")!).subscribe({
+      next: (data: any) => {
+        this.userId = data[0].id;
+      }
+    })
+  }
+
+  public addItemToCart(userId:number, itemId:number){
+   
+
+    this.addItemToUserCart(userId, itemId);
+  }
+  private addItemToUserCart(userId: number, itemId: number) {
+    this.userService.inserItemIntoCart(userId, itemId).subscribe({
+      next: (data: any) => {
+        
+      }
+    })
   }
 
   public nextPage(): void {

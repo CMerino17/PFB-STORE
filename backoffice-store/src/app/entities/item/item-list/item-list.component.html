@@ -45,9 +45,10 @@
                 {{ item.price }}
             </td>
             <td>
-                <button id="btnEditCategory" [routerLink]="['/items', item.id]">Editar Template</button>
-                <button id="btnEditReactiveCategory" [routerLink]="['/items/reactive', item.id]">Editar Reactivo</button>
-                <button id="btnDeleteCategory" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="prepareItemToDelete(item.id!);">Eliminar</button>
+                <button id="btnEditCategory" class="btn btn-dark" [routerLink]="['/items', item.id]">Editar Template</button>
+                <button id="btnEditReactiveCategory" class="btn btn-dark" [routerLink]="['/items/reactive', item.id]">Editar Reactivo</button>
+                <button id="btnDeleteCategory" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="prepareItemToDelete(item.id!);">Eliminar</button>
+                <button *ngIf="userIsLogged" class="btn btn-info" data-bs-toggle="modal" (click)="addItemToCart(userId!,item.id!);">Añadir al carrito</button>
             </td>
         </tr>
     </tbody>

@@ -56,7 +56,6 @@ export class UserComponent implements OnInit{
         for(let fav of data[0].favourites){
           if (fav.id == itemId) {
             this.isFavourite = true;
-            console.log("marcado como fav" + this.isFavourite);
             break;
           }
         }

@@ -18,7 +18,7 @@
                     <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
                 </td>
                 <td>
-                    <input type="number" min="1" value="1" (input)="calculateTotalPrice();" [(ngModel)]='quantities[item.id!]' class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                    <input type="number" min="1" (input)="calculateTotalPrice();" [(ngModel)]='quantities[item.id!]' class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
                 </td>
                 <td [routerLink]="['/cardItem', item.id]">
                     {{ item.name }}

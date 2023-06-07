@@ -17,9 +17,11 @@
     </div>
     <div *ngIf="isFavourite&&user&&isLogged">
         <button class="btn btn-danger" (click)="deleteFavourite(item.id!,user.id!);">Quitar favorito</button>
+        <button class="btn btn-warning" (click)="addItemToCart(user.id!,item.id!);">Añadir al carrito</button>
     </div>
     <div *ngIf="!isFavourite&&user&&isLogged">
         <button class="btn btn-info" (click)="addFavourite(item.id!,user.id!);">Añadir favorito</button>
+        <button class="btn btn-warning" (click)="addItemToCart(user.id!,item.id!);">Añadir al carrito</button>
     </div>
 </div>
 

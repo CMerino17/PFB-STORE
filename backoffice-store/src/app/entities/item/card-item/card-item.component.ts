@@ -65,7 +65,6 @@ export class CardItemComponent implements OnInit {
         for(let fav of data[0].favourites){
           if (fav.id == itemId) {
             this.isFavourite = true;
-            console.log("marcado como fav" + this.isFavourite);
             break;
           }
         }
@@ -78,6 +77,18 @@ export class CardItemComponent implements OnInit {
     this.userService.deleteFavourite(userId,itemId).subscribe({
       next: (data: any) => {
         this.isFavourite = false;
+      }
+    })
+  }
+
+  public addItemToCart(userId: number, itemId: number){
+    this.addItemToUserCart(userId, itemId);
+  }
+
+  private addItemToUserCart(userId: number, itemId: number) {
+    this.userService.inserItemIntoCart(userId, itemId).subscribe({
+      next: (data: any) => {
+        
       }
     })
   }
