@@ -1,0 +1,45 @@
+<h1>Carrito de la compra</h1>
+
+<div *ngIf="user">
+    
+
+    <table *ngIf="user.items.length>0">
+        <thead>
+            <th>Imagen</th>
+            <th>Unidades</th>
+            <th>Artículo</th>
+            <th>Categoria</th>
+            <th>Precio</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of user.items" >
+                <td [routerLink]="['/cardItem', item.id]">
+                    <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
+                </td>
+                <td>
+                    <input type="number" min="1" value="1" (input)="calculateTotalPrice();" [(ngModel)]='quantities[item.id!]' class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                </td>
+                <td [routerLink]="['/cardItem', item.id]">
+                    {{ item.name }}
+                </td>
+                <td [routerLink]="['/cardItem', item.id]">
+                    {{ item.categoryName }}
+                </td>
+                <td [routerLink]="['/cardItem', item.id]">
+                    {{ item.price }}
+                </td>
+                <td>
+                    <button id="btnDeleteCategory" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="deleteFromCart(user.id!,item.id!)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+        
+    </table>
+    <div class="cartTotalPrice">
+        <div id="precioTotal">Precio total: {{totalPrice}}€</div>
+        <button class="btn btn-success" (click)="calculateTotalPrice();">Actualizar</button>
+    </div>
+
+</div>
+

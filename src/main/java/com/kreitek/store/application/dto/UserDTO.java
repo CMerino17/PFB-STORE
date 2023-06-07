@@ -24,6 +24,8 @@ public class UserDTO implements Serializable {
 
     private List<ItemDTO> favourites;
 
+    private List<ItemDTO> items;
+
     public UserDTO() {
 
     }
@@ -90,5 +92,13 @@ public class UserDTO implements Serializable {
 
     public void setFavourites(List<ItemDTO> favourites) {
         this.favourites = favourites;
+    }
+
+    public List<ItemDTO> getItems() {
+        return items;
+    }
+
+    public void setItems(List<ItemDTO> items) {
+        this.items = items;
     }
 }

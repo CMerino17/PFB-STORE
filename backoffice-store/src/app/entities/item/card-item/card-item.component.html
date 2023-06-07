@@ -16,7 +16,7 @@
         <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
     </div>
     <div *ngIf="isFavourite&&user&&isLogged">
-        <button class="btn btn-dark" (click)="deleteFavourite(item.id!,user.id!);">Quitar favorito</button>
+        <button class="btn btn-danger" (click)="deleteFavourite(item.id!,user.id!);">Quitar favorito</button>
     </div>
     <div *ngIf="!isFavourite&&user&&isLogged">
         <button class="btn btn-info" (click)="addFavourite(item.id!,user.id!);">Añadir favorito</button>

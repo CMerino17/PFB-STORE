@@ -40,4 +40,15 @@ export class UserService {
     return this.http.post<User>(urlEndpoint, body);
   }
 
+  public inserItemIntoCart(userId: number, itemId: number): Observable<User> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items";
+    let body = {"id":itemId}
+    return this.http.post<User>(urlEndpoint, body);
+  }
+
+  public deleteItemFromCart(userId: number, itemId: number): Observable<any> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items/"+itemId;
+    return this.http.delete<any>(urlEndpoint);
+  }
+
 }

@@ -10,8 +10,6 @@ import { UserService } from './service/user.service';
 })
 export class UserComponent implements OnInit{
 
-  mode: "LOGIN" | "SING UP" = "LOGIN"
-  
   user?: User;
   nick?: string;
   password?: string;
@@ -51,7 +49,7 @@ export class UserComponent implements OnInit{
       }
     })
   }
-/*
+
   private isFavouriteItem(itemId: number, userNick: string): void {
     this.userService.getUser(userNick).subscribe({
       next: (data: any) => {
@@ -65,7 +63,7 @@ export class UserComponent implements OnInit{
         
       }
     })
-  }*/
+  }
   
 
 

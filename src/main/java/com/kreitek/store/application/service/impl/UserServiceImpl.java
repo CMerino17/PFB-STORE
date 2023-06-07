@@ -1,9 +1,11 @@
 package com.kreitek.store.application.service.impl;
 
+import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.mapper.UserMapper;
 import com.kreitek.store.application.service.UserService;
 import com.kreitek.store.domain.entity.User;
+import com.kreitek.store.domain.persistence.ItemPersistence;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserPersistence persistence;
     private final UserMapper mapper;
+
 
     @Autowired
     public UserServiceImpl(UserPersistence persistence, UserMapper mapper) {
@@ -50,6 +53,34 @@ public class UserServiceImpl implements UserService {
     public List<UserDTO> getUserByNick(String nick) {
         List<User> users = this.persistence.getUserByNick(nick);
         return mapper.toDto(users);
+
+    }
+
+    @Override
+    public List<ItemDTO> addItemToCart(Long userId, ItemDTO itemDTO) {
+        UserDTO userDto = this.persistence.getUserById(userId).map(mapper::toDto)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        userDto.getItems().add(itemDTO);
+
+        User user = this.persistence.saveUser(mapper.toEntity(userDto));
+        userDto = this.mapper.toDto(user);
+
+        return userDto.getItems();
+
+    }
+
+    @Override
+    public void deleteItemInCart(Long userId, Long itemId) {
+        UserDTO userDto = getUserById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+
+        userDto.getItems().removeIf(x -> x.getId().equals(itemId));
+
+        this.persistence.saveUser(mapper.toEntity(userDto));
+
+
 
     }
 

@@ -97,5 +97,18 @@ public class UserRestController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @PostMapping(value = "/users/{userId}/items", produces = "application/json", consumes = "application/json")
+    public ResponseEntity<List<ItemDTO>> addItemToUserCart(@PathVariable Long userId, @RequestBody ItemDTO itemDTO){
+        List<ItemDTO> itemsDto = this.userService.addItemToCart(userId, itemDTO);
+        return new ResponseEntity<>(itemsDto, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @DeleteMapping(value = "/users/{userId}/items/{itemId}")
+    ResponseEntity<?> deleteItemInUserCart(@PathVariable Long userId, @PathVariable Long itemId) {
+        this.userService.deleteItemInCart(userId,itemId);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
 }
