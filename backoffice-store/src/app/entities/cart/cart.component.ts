@@ -50,6 +50,7 @@ export class CartComponent implements OnInit{
     this.userService.getUser(nick).subscribe({
       next: (data: any) => {
         this.user = data[0];
+        this.calculateTotalPrice();
       }
     })
     
@@ -60,7 +61,8 @@ export class CartComponent implements OnInit{
     this.userService.deleteItemFromCart(userId, itemId).subscribe({
       next: (data: any) => {
         this.getUser(this.nick!);
-      }
+      },
+      
     })
         
   }
