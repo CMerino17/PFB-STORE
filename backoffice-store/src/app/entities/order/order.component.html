@@ -1,0 +1,14 @@
+
+<h1>Pedido</h1>
+<div *ngIf="!ordered">
+    <label for="address">Dirección de envío</label>
+    <input type="text" id="address" name="address" required>
+    <button class="btn btn-success" (click)="createOrder();">Tramitar pedido</button>
+</div>
+
+<div *ngIf="ordered">
+    <h3>Pedido realizado correctamente</h3>
+    <button class="btn btn-info" [routerLink]="['../user']">Ir a tu perfil</button>
+</div>
+
+

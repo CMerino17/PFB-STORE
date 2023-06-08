@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from './model/user.model';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from './service/user.service';
+import { Item } from '../item/model/item.model';
+import { Order } from '../order/model/order.model';
 
 @Component({
   selector: 'app-user',
@@ -14,10 +16,11 @@ export class UserComponent implements OnInit{
   nick?: string;
   password?: string;
   isFavourite: boolean = false;
-
   login: boolean = false;
-
   nickFilter: string = "";
+  orders?: any[];
+  orderItems?: any[];
+  showOrder: boolean = false;
 
   constructor(private route: ActivatedRoute,
               private userService: UserService) { }
@@ -26,15 +29,33 @@ export class UserComponent implements OnInit{
   ngOnInit(): void {
     this.nick = localStorage.getItem('logged')!;
     this.getUser(this.nick);
-    
   }
 
   private getUser(nick: string): void {
     this.userService.getUser(nick).subscribe({
       next: (data: any) => {
+        console.log("ENTRA")
         this.user = data[0];
+        
+        
+        this.getOrders(this.user!.id!);
+
       }
     })
+  }
+
+  private getOrders(userId: number): void{
+    this.userService.getOrdersFromUser(userId).subscribe({
+      next: (data: any) => {
+        this.orders = data;
+        console.log(this.orders);
+        for(let order of this.orders!){
+          this.orderItems = order.items;
+
+        }
+      }
+    })
+
   }
 
   public delete(itemId: number, userId: number): void {

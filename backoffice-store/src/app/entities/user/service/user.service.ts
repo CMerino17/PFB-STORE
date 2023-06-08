@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../model/user.model'
+import { Item } from '../../item/model/item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -49,6 +50,17 @@ export class UserService {
   public deleteItemFromCart(userId: number, itemId: number): Observable<any> {
     let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items/"+itemId;
     return this.http.delete<any>(urlEndpoint);
+  }
+
+  public insertOrderIntoUser(userId: number, items: Item[]): Observable<any> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/orders";
+    let body = {items};
+    return this.http.post<any>(urlEndpoint, body);
+  }
+
+  public getOrdersFromUser(userId: number): Observable<any[]> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/orders";
+    return this.http.get<any[]>(urlEndpoint);
   }
 
 }
