@@ -1,8 +1,10 @@
 package com.kreitek.store.application.mapper;
 
 import com.kreitek.store.application.dto.ItemDTO;
+import com.kreitek.store.application.dto.OrderDTO;
 import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.domain.entity.Item;
+import com.kreitek.store.domain.entity.Order;
 import com.kreitek.store.domain.entity.User;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -14,7 +16,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-06-07T17:55:25+0200",
+    date = "2023-06-08T14:43:16+0200",
     comments = "version: 1.4.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.1.jar, environment: Java 17.0.7 (Amazon.com Inc.)"
 )
 @Component
@@ -22,6 +24,8 @@ public class UserMapperImpl implements UserMapper {
 
     @Autowired
     private ItemMapper itemMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
     @Override
     public List<User> toEntity(List<UserDTO> dtoList) {
@@ -68,6 +72,7 @@ public class UserMapperImpl implements UserMapper {
         user.setPassword( userDTO.getPassword() );
         user.setFavourites( itemDTOListToItemSet( userDTO.getFavourites() ) );
         user.setItems( itemDTOListToItemSet( userDTO.getItems() ) );
+        user.setOrders( orderDTOListToOrderSet( userDTO.getOrders() ) );
 
         return user;
     }
@@ -89,6 +94,7 @@ public class UserMapperImpl implements UserMapper {
         userDTO.setPassword( user.getPassword() );
         userDTO.setFavourites( itemSetToItemDTOList( user.getFavourites() ) );
         userDTO.setItems( itemSetToItemDTOList( user.getItems() ) );
+        userDTO.setOrders( orderSetToOrderDTOList( user.getOrders() ) );
 
         return userDTO;
     }
@@ -106,6 +112,19 @@ public class UserMapperImpl implements UserMapper {
         return set;
     }
 
+    protected Set<Order> orderDTOListToOrderSet(List<OrderDTO> list) {
+        if ( list == null ) {
+            return null;
+        }
+
+        Set<Order> set = new HashSet<Order>( Math.max( (int) ( list.size() / .75f ) + 1, 16 ) );
+        for ( OrderDTO orderDTO : list ) {
+            set.add( orderMapper.toEntity( orderDTO ) );
+        }
+
+        return set;
+    }
+
     protected List<ItemDTO> itemSetToItemDTOList(Set<Item> set) {
         if ( set == null ) {
             return null;
@@ -114,6 +133,19 @@ public class UserMapperImpl implements UserMapper {
         List<ItemDTO> list = new ArrayList<ItemDTO>( set.size() );
         for ( Item item : set ) {
             list.add( itemMapper.toDto( item ) );
+        }
+
+        return list;
+    }
+
+    protected List<OrderDTO> orderSetToOrderDTOList(Set<Order> set) {
+        if ( set == null ) {
+            return null;
+        }
+
+        List<OrderDTO> list = new ArrayList<OrderDTO>( set.size() );
+        for ( Order order : set ) {
+            list.add( orderMapper.toDto( order ) );
         }
 
         return list;

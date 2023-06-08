@@ -9,6 +9,7 @@ import com.kreitek.store.domain.persistence.ItemPersistence;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -27,29 +28,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<UserDTO> getAllUsers() {
         List<User> users = this.persistence.getAllUsers();
         return this.mapper.toDto(users);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Optional<UserDTO> getUserById(Long userId) {
         return this.persistence.getUserById(userId).map(mapper::toDto);
 
     }
 
     @Override
+    @Transactional
     public UserDTO saveUser(UserDTO user) {
         User userSaved = this.persistence.saveUser(mapper.toEntity(user));
         return this.mapper.toDto(userSaved);
     }
 
     @Override
+    @Transactional
     public void deleteUser(Long userId) {
         this.persistence.deleteUser(userId);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<UserDTO> getUserByNick(String nick) {
         List<User> users = this.persistence.getUserByNick(nick);
         return mapper.toDto(users);
@@ -57,6 +63,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public List<ItemDTO> addItemToCart(Long userId, ItemDTO itemDTO) {
         UserDTO userDto = this.persistence.getUserById(userId).map(mapper::toDto)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -71,6 +78,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void deleteItemInCart(Long userId, Long itemId) {
         UserDTO userDto = getUserById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));

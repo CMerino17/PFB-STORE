@@ -1,7 +1,9 @@
 package com.kreitek.store.application.dto;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ItemDTO implements Serializable {
     private Long id;
     private String name;

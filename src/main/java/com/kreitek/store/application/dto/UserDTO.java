@@ -26,6 +26,8 @@ public class UserDTO implements Serializable {
 
     private List<ItemDTO> items;
 
+    private List<OrderDTO> orders;
+
     public UserDTO() {
 
     }
@@ -100,5 +102,13 @@ public class UserDTO implements Serializable {
 
     public void setItems(List<ItemDTO> items) {
         this.items = items;
+    }
+
+    public List<OrderDTO> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<OrderDTO> orders) {
+        this.orders = orders;
     }
 }
