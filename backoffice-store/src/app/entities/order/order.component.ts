@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../user/model/user.model';
 import { UserService } from '../user/service/user.service';
-import { Item } from '../item/model/item.model';
-import { ActivatedRoute, Params } from '@angular/router';
 import { OrderService } from './service/order.service';
 
 @Component({

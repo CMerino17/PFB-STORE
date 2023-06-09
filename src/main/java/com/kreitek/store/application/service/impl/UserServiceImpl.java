@@ -5,7 +5,6 @@ import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.mapper.UserMapper;
 import com.kreitek.store.application.service.UserService;
 import com.kreitek.store.domain.entity.User;
-import com.kreitek.store.domain.persistence.ItemPersistence;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

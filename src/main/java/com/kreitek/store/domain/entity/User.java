@@ -3,7 +3,6 @@ package com.kreitek.store.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity

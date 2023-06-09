@@ -1,6 +1,5 @@
 package com.kreitek.store.infrastructure.rest;
 
-import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.OrderDTO;
 import com.kreitek.store.application.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +30,5 @@ public class OrderRestController {
         orderDTO = this.orderService.createOrder(userId, orderDTO);
         return new ResponseEntity<>(orderDTO, HttpStatus.CREATED);
     }
-/*
-    @CrossOrigin
-    @PutMapping(value = "orders/{orderId}/items", produces = "application/json", consumes = "application/json")
-    public ResponseEntity<List<ItemDTO>> addItemsIntoOrder(@PathVariable Long userId, @PathVariable Long orderId, @RequestBody ItemDTO itemDTO){
-        List<ItemDTO> itemsDTO = this.orderService.addItemToOrder(userId,orderId,itemDTO);
-        return new ResponseEntity<>(itemsDTO, HttpStatus.OK);
-    }*/
+
 }

@@ -1,6 +1,5 @@
 package com.kreitek.store.application.service.impl;
 
-import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.mapper.UserMapper;
 import com.kreitek.store.application.service.FavouriteService;
@@ -11,7 +10,6 @@ import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 

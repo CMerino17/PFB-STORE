@@ -4,9 +4,6 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 @Entity

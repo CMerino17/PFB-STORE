@@ -6,7 +6,6 @@ import com.kreitek.store.application.mapper.OrderMapper;
 import com.kreitek.store.application.service.OrderService;
 import com.kreitek.store.domain.entity.Order;
 import com.kreitek.store.domain.persistence.OrderPersistence;
-import com.kreitek.store.infrastructure.persistence.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

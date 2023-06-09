@@ -4,8 +4,6 @@ import com.kreitek.store.application.dto.ItemDTO;
 import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.service.FavouriteService;
 import com.kreitek.store.application.service.UserService;
-
-import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
