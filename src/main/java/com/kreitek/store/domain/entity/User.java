@@ -3,7 +3,6 @@ package com.kreitek.store.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -33,6 +32,9 @@ public class User {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_items", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "item_id"))
     private Set<Item> items;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    Set<Order> orders;
 
     public User() {
 
@@ -108,6 +110,14 @@ public class User {
 
     public void setItems(Set<Item> items) {
         this.items = items;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
     }
 
     @Override

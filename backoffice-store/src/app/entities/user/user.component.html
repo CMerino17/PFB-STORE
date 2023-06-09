@@ -2,21 +2,25 @@
     <div id="nick">
         <h1>{{user.nick}}</h1>
     </div>
-    <div id="nick">
-        <h1>Favoritos</h1>
-    </div>
 
+
+    <div id="nick">
+        <h1 id="fav">Favoritos</h1>
+    </div>
+    <div *ngIf="user.favourites.length==0">
+        <h4>No has marcado ningún artículo como favorito</h4>
+    </div>
     <table *ngIf="user.favourites.length>0">
         <thead>
-            <th>Id</th>
-            <th>Imagen</th>
-            <th>Artículo</th>
-            <th>Precio</th>
-            <th>Acciones</th>
+            <th class="favHead">Id</th>
+            <th class="favHead">Imagen</th>
+            <th class="favHead">Artículo</th>
+            <th class="favHead">Precio</th>
+            <th class="favHead">Acciones</th>
         </thead>
         <tbody>
-            <tr *ngFor="let item of user.favourites" >
-                <td [routerLink]="['/cardItem', item.id]">{{ item.id }}</td>
+            <tr *ngFor="let item of user.favourites">
+                <td class="itemId" [routerLink]="['/cardItem', item.id]">{{ item.id }}</td>
                 <td [routerLink]="['/cardItem', item.id]">
                     <img class="imgItem" [src]="'data:image/webp;base64,' + item.image">
                 </td>
@@ -27,15 +31,15 @@
                     {{ item.price }}
                 </td>
                 <td>
-                    <button id="btnDeleteCategory" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#askConfirmationDelete" (click)="delete(item.id!,user.id!);">Quitar favorito</button>
+                    <button id="btnDeleteCategory" class="btn btn-danger" data-bs-toggle="modal"
+                        data-bs-target="#askConfirmationDelete" (click)="delete(item.id!,user.id!);">Quitar
+                        favorito</button>
                 </td>
             </tr>
         </tbody>
     </table>
 
+    <button class="btn btn-info" id="ordersBtn" [routerLink]="['/user',user.id,'orders']">Ver mis pedidos</button>
+
+
 </div>
-
-
-
-
-

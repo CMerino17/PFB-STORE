@@ -2,7 +2,6 @@
 
 <div *ngIf="user">
     
-
     <table *ngIf="user.items.length>0">
         <thead>
             <th>Imagen</th>
@@ -36,9 +35,11 @@
         </tbody>
         
     </table>
-    <div class="cartTotalPrice">
-        <div id="precioTotal">Precio total: {{totalPrice}}€</div>
-        <button class="btn btn-success" (click)="calculateTotalPrice();">Actualizar</button>
+    <div class="cartOrder">
+        <div id="totalPrice">Precio total: {{totalPrice}}€</div>
+        <div *ngIf="user.items.length>0">
+            <button class="btn btn-success" [routerLink]="['/order']">Tramitar pedido</button>
+        </div>
     </div>
 
 </div>

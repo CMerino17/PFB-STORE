@@ -1,0 +1,40 @@
+.orderHeader{
+    background-color: rgb(91, 212, 91);
+    text-align: center;
+    color: black;
+}
+th{
+    background-color: black;
+    color: white;
+}
+
+.rowOrder{
+    margin-bottom: 50px;
+}
+#fav{
+    color: orange;
+}
+#orderTitle{
+    color: green;
+}
+.itemId{
+    width: 100px;
+}
+.favHead{
+    background-color: orange;
+}
+.imgItem{
+    width: 80px;
+    height: 80px;
+}
+table{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+tr:nth-child(even){
+    background-color: rgb(218, 218, 218);
+}
+h4{
+    text-align: center;
+}

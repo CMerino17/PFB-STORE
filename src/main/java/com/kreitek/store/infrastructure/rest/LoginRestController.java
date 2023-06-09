@@ -1,9 +1,7 @@
 package com.kreitek.store.infrastructure.rest;
 
 import com.kreitek.store.application.dto.LoginDTO;
-import com.kreitek.store.application.dto.UserDTO;
 import com.kreitek.store.application.service.LoginService;
-import com.kreitek.store.application.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

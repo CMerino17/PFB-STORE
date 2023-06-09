@@ -1,6 +1,5 @@
 package com.kreitek.store.infrastructure.persistence;
 
-import com.kreitek.store.domain.entity.Item;
 import com.kreitek.store.domain.entity.User;
 import com.kreitek.store.domain.persistence.UserPersistence;
 import org.springframework.beans.factory.annotation.Autowired;

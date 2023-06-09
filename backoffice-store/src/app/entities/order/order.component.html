@@ -1,0 +1,13 @@
+<h1>Pedido</h1>
+<div >
+    <form *ngIf="!ordered" id="registerForm" #orderForm="ngForm" name="orderForm" role="form" novalidate autocomplete="off">
+        <label for="address">Dirección de envío</label>
+        <input type="text" id="address" [(ngModel)]="address" #name="ngModel" name="address" class="form-control" required minlength="3" maxlength="100">
+        <button class="btn btn-success" (click)="createOrder();" [disabled]="orderForm.invalid">Tramitar pedido</button>
+    </form>
+</div>
+
+<div *ngIf="ordered">
+    <h3>Pedido realizado correctamente</h3>
+    <button class="btn btn-info" [routerLink]="['../user']">Ir a tu perfil</button>
+</div>

@@ -51,3 +51,33 @@ label{
         height: 30px;
     }
 }
+.orderHeader{
+    background-color: green;
+    text-align: center;
+}
+
+.rowOrder{
+    margin-bottom: 50px;
+}
+#fav{
+    color: orange;
+}
+#orderTitle{
+    color: green;
+}
+.itemId{
+    width: 100px;
+}
+.favHead{
+    background-color: orange;
+}
+#ordersBtn{
+    display: flex;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+h4{
+    text-align: center;
+}

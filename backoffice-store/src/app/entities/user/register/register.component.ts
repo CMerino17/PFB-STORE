@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit{
   }
 
   initializeUser() {
-    this.user = new User(undefined, "", "", "", 0, "", "",[],[]);
+    this.user = new User(undefined, "", "", "", 0, "", "",[],[],[]);
   }
 
   public saveUser(): void {

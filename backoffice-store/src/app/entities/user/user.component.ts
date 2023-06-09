@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from './model/user.model';
-import { ActivatedRoute } from '@angular/router';
 import { UserService } from './service/user.service';
+
 
 @Component({
   selector: 'app-user',
@@ -14,19 +14,18 @@ export class UserComponent implements OnInit{
   nick?: string;
   password?: string;
   isFavourite: boolean = false;
-
   login: boolean = false;
-
   nickFilter: string = "";
+  orders?: any[];
+  orderItems?: any[];
+  showOrder: boolean = false;
 
-  constructor(private route: ActivatedRoute,
-              private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
 
   ngOnInit(): void {
     this.nick = localStorage.getItem('logged')!;
     this.getUser(this.nick);
-    
   }
 
   private getUser(nick: string): void {
@@ -49,21 +48,5 @@ export class UserComponent implements OnInit{
       }
     })
   }
-
-  private isFavouriteItem(itemId: number, userNick: string): void {
-    this.userService.getUser(userNick).subscribe({
-      next: (data: any) => {
-        for(let fav of data[0].favourites){
-          if (fav.id == itemId) {
-            this.isFavourite = true;
-            break;
-          }
-        }
-        
-      }
-    })
-  }
   
-
-
 }
