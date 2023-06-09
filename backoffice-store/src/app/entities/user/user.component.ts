@@ -22,8 +22,7 @@ export class UserComponent implements OnInit{
   orderItems?: any[];
   showOrder: boolean = false;
 
-  constructor(private route: ActivatedRoute,
-              private userService: UserService) { }
+  constructor(private userService: UserService) { }
 
 
   ngOnInit(): void {
@@ -34,28 +33,9 @@ export class UserComponent implements OnInit{
   private getUser(nick: string): void {
     this.userService.getUser(nick).subscribe({
       next: (data: any) => {
-        console.log("ENTRA")
         this.user = data[0];
-        
-        
-        this.getOrders(this.user!.id!);
-
       }
     })
-  }
-
-  private getOrders(userId: number): void{
-    this.userService.getOrdersFromUser(userId).subscribe({
-      next: (data: any) => {
-        this.orders = data;
-        console.log(this.orders);
-        for(let order of this.orders!){
-          this.orderItems = order.items;
-
-        }
-      }
-    })
-
   }
 
   public delete(itemId: number, userId: number): void {
@@ -70,21 +50,5 @@ export class UserComponent implements OnInit{
       }
     })
   }
-
-  private isFavouriteItem(itemId: number, userNick: string): void {
-    this.userService.getUser(userNick).subscribe({
-      next: (data: any) => {
-        for(let fav of data[0].favourites){
-          if (fav.id == itemId) {
-            this.isFavourite = true;
-            break;
-          }
-        }
-        
-      }
-    })
-  }
   
-
-
 }

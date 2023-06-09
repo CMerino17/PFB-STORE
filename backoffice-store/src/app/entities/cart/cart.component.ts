@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user/service/user.service';
 import { User } from '../user/model/user.model';
+import { CartService } from './service/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,8 @@ export class CartComponent implements OnInit{
   totalPrice: number = 0;
   quantities: { [key: number]: number } = {};
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService,
+              private cartService: CartService) {}
 
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class CartComponent implements OnInit{
   }
 
   private deleteItemFromCart(userId: number, itemId: number) {
-    this.userService.deleteItemFromCart(userId, itemId).subscribe({
+    this.cartService.deleteItemFromCart(userId, itemId).subscribe({
       next: (data: any) => {
         this.getUser(this.nick!);
       },
@@ -66,12 +68,6 @@ export class CartComponent implements OnInit{
     })
         
   }
-
-  
-
-
-  
-
 
   
 }

@@ -22,6 +22,7 @@ import { RegisterComponent } from './entities/user/register/register.component';
 import { CardItemComponent } from './entities/item/card-item/card-item.component';
 import { CartComponent } from './entities/cart/cart.component';
 import { OrderComponent } from './entities/order/order.component';
+import { OrderListComponent } from './entities/order/order-list/order-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { OrderComponent } from './entities/order/order.component';
     RegisterComponent,
     CardItemComponent,
     CartComponent,
-    OrderComponent
+    OrderComponent,
+    OrderListComponent
   ],
   imports: [
     BrowserModule,

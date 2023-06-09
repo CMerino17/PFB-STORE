@@ -66,12 +66,11 @@ export class ItemListComponent implements OnInit {
   }
 
   public addItemToCart(userId:number, itemId:number){
-   
-
     this.addItemToUserCart(userId, itemId);
   }
+
   private addItemToUserCart(userId: number, itemId: number) {
-    this.userService.inserItemIntoCart(userId, itemId).subscribe({
+    this.itemService.inserItemIntoCart(userId, itemId).subscribe({
       next: (data: any) => {
         
       }
@@ -107,7 +106,7 @@ export class ItemListComponent implements OnInit {
     }
   }
 
-  //No funcionan los filtros, lo devuelve todo
+
   public buildFilters(): string|undefined{
     const filters: string[] = [];
 
@@ -152,7 +151,7 @@ export class ItemListComponent implements OnInit {
   }
 
   private handleError(error: any){
-    // lo que queramos
+    
   }
 
 }

@@ -46,4 +46,15 @@ export class ItemService {
     return this.http.post<User>(urlEndpoint, body);
   }
 
+  public deleteFavourite(userId: number, itemId: number): Observable<any> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/favourites/"+itemId;
+    return this.http.delete<any>(urlEndpoint);
+  }
+
+  public inserItemIntoCart(userId: number, itemId: number): Observable<any> {
+    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items";
+    let body = {"id":itemId}
+    return this.http.post<any>(urlEndpoint, body);
+  }
+
 }

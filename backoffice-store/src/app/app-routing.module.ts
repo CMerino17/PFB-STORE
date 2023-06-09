@@ -11,6 +11,7 @@ import { RegisterComponent } from './entities/user/register/register.component';
 import { CardItemComponent } from './entities/item/card-item/card-item.component';
 import { CartComponent } from './entities/cart/cart.component';
 import { OrderComponent } from './entities/order/order.component';
+import { OrderListComponent } from './entities/order/order-list/order-list.component';
 
 
 const routes: Routes = [
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'cardItem/:itemId', component: CardItemComponent },
   { path: 'cart', component: CartComponent },
-  { path: 'order', component: OrderComponent}
+  { path: 'order', component: OrderComponent},
+  { path: 'user/:userId/orders', component: OrderListComponent}
 ];
 
 @NgModule({

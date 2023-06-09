@@ -74,7 +74,7 @@ export class CardItemComponent implements OnInit {
   }
 
   private deleteFavouriteItem(itemId: number, userId: number): void {
-    this.userService.deleteFavourite(userId,itemId).subscribe({
+    this.itemService.deleteFavourite(userId,itemId).subscribe({
       next: (data: any) => {
         this.isFavourite = false;
       }
@@ -86,7 +86,7 @@ export class CardItemComponent implements OnInit {
   }
 
   private addItemToUserCart(userId: number, itemId: number) {
-    this.userService.inserItemIntoCart(userId, itemId).subscribe({
+    this.itemService.inserItemIntoCart(userId, itemId).subscribe({
       next: (data: any) => {
         
       }

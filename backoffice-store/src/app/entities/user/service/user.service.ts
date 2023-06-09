@@ -35,32 +35,4 @@ export class UserService {
     return this.http.delete<any>(urlEndpoint);
   }
 
-  public insertFavourite(userId: number, itemId: number): Observable<User> {
-    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/favourites";
-    let body = {"id":itemId}
-    return this.http.post<User>(urlEndpoint, body);
-  }
-
-  public inserItemIntoCart(userId: number, itemId: number): Observable<any> {
-    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items";
-    let body = {"id":itemId}
-    return this.http.post<any>(urlEndpoint, body);
-  }
-
-  public deleteItemFromCart(userId: number, itemId: number): Observable<any> {
-    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/items/"+itemId;
-    return this.http.delete<any>(urlEndpoint);
-  }
-
-  public insertOrderIntoUser(userId: number, items: Item[]): Observable<any> {
-    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/orders";
-    let body = {items};
-    return this.http.post<any>(urlEndpoint, body);
-  }
-
-  public getOrdersFromUser(userId: number): Observable<any[]> {
-    let urlEndpoint: string = "http://localhost:8080/store/users/"+userId+"/orders";
-    return this.http.get<any[]>(urlEndpoint);
-  }
-
 }

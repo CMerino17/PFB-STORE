@@ -3,6 +3,7 @@ import { User } from '../user/model/user.model';
 import { UserService } from '../user/service/user.service';
 import { Item } from '../item/model/item.model';
 import { ActivatedRoute, Params } from '@angular/router';
+import { OrderService } from './service/order.service';
 
 @Component({
   selector: 'app-order',
@@ -14,9 +15,10 @@ export class OrderComponent implements OnInit{
   user?: User;
   itemsId?: number[]
   ordered: boolean = false;
+  address?: string;
 
   constructor(private userService: UserService,
-              private route: ActivatedRoute) { }
+              private orderService: OrderService) { }
 
 
   ngOnInit(): void {
@@ -39,7 +41,7 @@ export class OrderComponent implements OnInit{
   }
 
   private createOrderIntoUser(){
-    this.userService.insertOrderIntoUser(this.user!.id!,this.user!.items).subscribe({
+    this.orderService.insertOrderIntoUser(this.user!.id!,this.user!.items).subscribe({
       next: (data: any) => {
         console.log(data);
         this.ordered = true;
