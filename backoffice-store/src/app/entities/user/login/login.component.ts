@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit{
   userId?: number;
   nick?: string;
   password?: string;
+  isLogged: boolean = true;
 
   constructor(private userService: UserService,
               private location: Location,
@@ -36,10 +37,12 @@ export class LoginComponent implements OnInit{
         if (response) {
           localStorage.setItem('logged',nick);
           console.log("LOGIN SUCCESS");
+          this.isLogged = true;
           this.goBack();
         } else {
           localStorage.removeItem('logged');
           console.log("LOGIN FAIL")
+          this.isLogged = false;
         }
       }
     });
