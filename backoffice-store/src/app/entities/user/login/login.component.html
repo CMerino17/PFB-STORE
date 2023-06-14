@@ -11,9 +11,14 @@
     <!-- Contraseña -->
     <div class="form-group">
         <label for="password">Contraseña</label>
-        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" #description="ngModel" maxlength="2000">
+        <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" required #description="ngModel" maxlength="2000">
     </div>
-
+    <!--Validación Login-->
+    <div *ngIf="!isLogged">
+        <small class="form-text text-danger">
+            Usuario o contraseña erroneos
+        </small>
+    </div>
     <div id="loginUser" class="buttonsForm">
         <button type="button" class="btn btn-dark" (click)="getLoginUser(nick!,password!);" [disabled]="loginForm.invalid">Identificarse</button>
     </div>

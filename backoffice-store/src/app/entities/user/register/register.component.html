@@ -19,22 +19,61 @@
     <!-- Name -->
     <div class="form-group">
         <label for="name">Nombre</label>
-        <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" #name="ngModel" required maxlength="50">
+        <input type="text" [(ngModel)]="user.name" name="name" class="form-control" id="name" #name="ngModel" required minlength="3" maxlength="50">
+    </div>
+    <!--Validación Name-->
+    <div *ngIf="(name.dirty && name.errors)">
+        <small class="form-text text-danger" *ngIf="name.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="name.errors['minlength']">
+            Este campo tiene que tener una longitud mínima de 3 caracteres
+        </small>
     </div>
     <!-- Surname -->
     <div class="form-group">
         <label for="surname">Apellidos</label>
-        <input type="text" [(ngModel)]="user.surname" name="surname" class="form-control" id="surname" #surname="ngModel" required maxlength="100">
+        <input type="text" [(ngModel)]="user.surname" name="surname" class="form-control" id="surname" #surname="ngModel" required minlength="3" maxlength="100">
+    </div>
+    <!--Validación Surname-->
+    <div *ngIf="(surname.dirty && surname.errors)">
+        <small class="form-text text-danger" *ngIf="surname.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="surname.errors['minlength']">
+            Este campo tiene que tener una longitud mínima de 3 caracteres
+        </small>
     </div>
     <!-- Phone Number -->
     <div class="form-group">
         <label for="phoneNumber">Teléfono</label>
         <input type="number" [(ngModel)]="user.phoneNumber" name="phoneNumber" class="form-control" id="phoneNumber" #phoneNumber="ngModel" required min="600000000" max="699999999">
     </div>
+    <!--Validación Phone Number-->
+    <div *ngIf="(phoneNumber.dirty && phoneNumber.errors)">
+        <small class="form-text text-danger" *ngIf="phoneNumber.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="phoneNumber.errors['min']">
+            Este campo debe contener un número entre 600000000 y 699999999
+        </small>
+        <small class="form-text text-danger" *ngIf="phoneNumber.errors['max']">
+            Este campo debe contener un número entre 600000000 y 699999999
+        </small>
+    </div>
     <!-- Email -->
     <div class="form-group">
         <label for="email">Email</label>
         <input type="email" [email]="true" [(ngModel)]="user.email" name="email" class="form-control" id="email" #email="ngModel" required maxlength="200">
+    </div>
+    <!--Validación Email-->
+    <div *ngIf="(email.dirty && email.errors)">
+        <small class="form-text text-danger" *ngIf="email.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="email.errors['email']">
+            Debes insertar un email válido
+        </small>
     </div>
     <!-- Password -->
     <div class="form-group">
